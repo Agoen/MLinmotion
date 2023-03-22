@@ -1,132 +1,193 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Switched Split Screen</title>
-	<style>
-		.split-screen {
-			display: flex;
-			height: 100vh;
-			justify-content: center;
-			align-items: center;
-			overflow: hidden;
-		}
+<title>VIP: Machine Learning in Motion</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script>
+  let posenet;
+  let pose;
 
-		.split-screen__pane--left {
-			width: 30%;
-			height: 100vh;
-			position: relative;
-			background-color: white;
-			overflow: hidden;
-		}
+  function setup(video) {
+      createCanvas(640, 480);
+      video = createCapture(VIDEO);
+      video.hide();
+      poseNet = ml5.poseNet(video, modelLoaded);
+      poseNet.on('pose', gotPoses);
+  }
 
-		.split-screen__pane--right {
-			width: 70%;
-			height: 100vh;
-			position: relative;
-			background-color: black;
-			overflow: hidden;
-		}
+  function gotPoses(poses) {
+      console.log(poses)
+      if (poses.length > 0) {
+          pose = poses[0].pose;
+      }
+  }
 
-		.split-screen__pane--left p {
-			margin: 0;
-			padding: 20px;
-			font-size: 24px;
-			font-weight: bold;
-			color: black;
-			position: absolute;
-			top: 50%;
-			transform: translateY(-50%);
-			text-align: center;
-		}
+  function modelLoaded() {
+      console.log('poseNet ready');
+  }
 
-		.split-screen__pane--right img {
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
-			position: absolute;
-			top: 0;
-			left: 0;
-		}
-	</style>
+  function getNeck(xleft, yleft, xright, yright) {
+      length = dist(xleft,yleft,xright,yright);
+      fill(0,255,0);
+      ellipse((length/2), yleft,32);
+  }
+
+  function draw() {
+      poseNet = ml5.poseNet(video, modelLoaded);
+      poseNet.on('pose', gotPoses);
+      image(video, 0, 0);
+
+      if (pose) {
+
+          let eyeR = pose.rightEye;
+          let eyeL = pose.leftEye;
+          let d = dist(eyeR.x, eyeR.y, eyeL.x, eyeL.y);
+          let color = dist(pose.nose.x, 0, pose.nose.y, 0);
+
+          fill(color,0,0);
+          ellipse(pose.nose.x, pose.nose.y, d+64);
+
+          fill(0,0,255);
+          ellipse(0,0,100);
+
+          for(let i = 3; i < pose.keypoints.length; i++) {
+              let x = pose.keypoints[i].position.x;
+              let y = pose.keypoints[i].position.y;
+              if(i == 5) {
+                  let x2 = pose.keypoints[i+1].position.x;
+                  let y2 = pose.keypoints[i+1].position.y;
+                  getNeck(x,y,x2,y2);
+              }
+              fill(0, 255, 0);
+              ellipse(x, y, 16, 16)
+          }
+      }
+  }
+</script>
+<script src="/bootstrap-select-1.13.14/js/bootstrap-select.js"></script>
+<script src="/bootstrap-select-1.13.14/js/bootstrap.min.js"></script>
+<script src="/bootstrap-select-1.13.14/js/bootstrap.js"></script>
+<script src="/bootstrap-select-1.13.14/css/bootstrap.css"></script>
+<script src="/bootstrap-select-1.13.14/css/bootstrap.min.css"></script>
+<script src="/bootstrap-select-1.13.14/bower.json"></script>
+<script src="/bootstrap-select-1.13.14/sass/bootstrap-select.scss"></script>
+<script src="/bootstrap-select-1.13.14/sass/variables.scss"></script>
+
+<script src='/js/sketch.js'></script>
+
+<link rel="stylesheet" href="VIP-BACKEND/select-picker-master/dist/picker.min.css">
+<script type="text/javascript" src="VIP-BACKEND/select-picker-master/dist/picker.min.js"></script>
+
+<style>
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+#container {
+	margin: 0px auto;
+	width: 659px;
+	height: 499px;
+	border: 10px #333 solid;
+}
+</style>
 </head>
-<body>
-	<div class="split-screen">
-		<div class="split-screen__pane--left">
-			<p>
-                <h1>Checkbox select</h1>
+<body class="w3-light-grey">
 
-                <form id="make_checkbox_select">
-                
-                  <select name="make">
-                      <option data-count="2" value="Head">Head</Head></option>
-                      <option data-count="23" value="Body">Body</Body></option>
-                      <option data-count="433" value="Right Forearm">Right Forearm</option>
-                      <option data-count="45" value="Left Forearm">Left Forearm</option>
-                      <option data-count="476" value="Right Hand">Right Hand</option>
-                      <option data-count="78" value="Left Hand">Left Hand</option>
-                      <option data-count="123" value="Left Upper Arm">Left Upper Arm</option>
-                      <option data-count="32" value="Right Upper Arm">Right Upper Arm</option>
-                      <option data-count="3" value="Neck">Neck</option>
-                      <option data-count="342" value="Hyundai">Hyundai</option>
-                      <option data-count="45" value="Isuzu">Isuzu</option>
-                      <option data-count="653" value="Jaguar">Jaguar</option>
-                      <option data-count="3" value="Jeep">Jeep</option>
-                      <option data-count="23" value="Kia">Kia</option>
-                      <option data-count="5656" value="Lamborghini">Lamborghini</option>
-                      <option data-count="2133" value="Land Rover">Land Rover</option>
-                      <option data-count="2" value="Lexus">Lexus</option>
-                      <option data-count="43" value="Lotus">Lotus</option>
-                      <option data-count="54" value="Maserati">Maserati</option>
-                      <option data-count="5" value="Mazda">Mazda</option>
-                      <option data-count="1" value="Mercedes-Benz">Mercedes-Benz</option>
-                      <option data-count="34" value="Mini">Mini</option>
-                      <option data-count="23" value="Mitsubishi">Mitsubishi</option>
-                      <option data-count="56" value="Nissan">Nissan</option>
-                      <option data-count="98" value="Peugeot">Peugeot</option>
-                      <option data-count="210" value="Porsche">Porsche</option>
-                      <option data-count="3" value="Renault">Renault</option>
-                      <option data-count="76" value="Saab">Saab</option>
-                      <option data-count="45" value="Skoda">Skoda</option>
-                      <option data-count="3" value="smart">smart</option>
-                      <option data-count="23" value="Subaru">Subaru</option>
-                      <option data-count="7" value="Suzuki">Suzuki</option>
-                      <option data-count="45" value="Toyota">Toyota</option>
-                      <option data-count="23" value="Volkswagen">Volkswagen</option>
-                      <option data-count="6" value="Volvo">Volvo</option>
-                  </select>
-                  
-                  <input type="submit" />
-                  
-                </form>
-                
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-                
-                <script>
-                
-                    $(function()
-                    {
-                        var mySelectCheckbox = new checkbox_select(
-                        {
-                            selector : "#make_checkbox_select",
-                            selected_translation : "selectat",
-                            all_translation : "Toate marcile",
-                            not_found : "Nici unul gasit",
-                
-                            // Event during initialization
-                            onApply : function(e)
-                            {
-                                alert("Custom Event: " + e.selected);
-                            }
-                        });
-                  
-                    });
-                        
-                </script>
-            </p>
-            
-		</div>
-		<div class="split-screen__pane--right">
-		</div>
-	</div>
+<!-- Page Container -->
+<div class="w3-content w3-margin-top" style="max-width:1500px;">
+
+  <!-- The Grid -->
+  <div class="w3-row-padding">
+  
+    <!-- Left Column -->
+    <div class="w3-third">
+    
+      <div class="w3-white w3-text-grey w3-card-4">
+        <div class="w3-container">
+            <div class="title">
+                <h2>Tracking Selector</h2>
+              </div>
+              <select name="basic" id="ex-search" multiple>
+                <option value="1">Shanghai</option>
+                <option value="2">Karachi</option>
+                <option value="3">Beijing</option>
+                <option value="4">Tianjin</option>
+                <option value="5">Istanbul</option>
+                <option value="6">Lagos</option>
+                <option value="7">Tokyo</option>
+                <option value="8">Guangzhou</option>
+                <option value="9">Mumbai</option>
+                <option value="10">Moscow</option>
+                <option value="11">Dhaka</option>
+                <option value="12">Cairo</option>
+            </select>
+              <script>
+                $('#ex-search').picker({search : true});
+              </script>        
+              <!-- <label>
+                Multi-select
+                <input mbsc-input id="my-input" data-dropdown="true" data-tags="true" /> -->
+            <!-- </label> -->
+            <!-- <select class = "selectpicker" multiple>
+                <option value="cheese">Cheese</option>
+                <option value="tomatoes">Tomatoes</option>
+                <option value="mozarella">Mozzarella</option>
+                <option value="mushrooms">Mushrooms</option>
+                <option value="pepperoni">Pepperoni</option>
+                <option value="onions">Onions</option>
+            </select> -->
+            <!-- <script type="text/javascript">
+                $(document).ready(function() {
+                    $('#example-getting-started').multiselect();
+                });
+            </script> --> 
+          <br>
+        </div>
+      </div><br>
+
+    <!-- End Left Column -->
+    </div>
+
+    <!-- Right Column -->
+    <div class="w3-twothird">
+    
+      <div class="w3-container w3-card w3-white w3-margin-bottom">
+        <h2 class="w3-text-grey w3-padding-16">Motion Tracking</h2>
+        
+      </div>
+      <div id="container">
+        <video autoplay="true" id="videoElement">
+        
+        </video>
+      </div>
+      <script>
+        var video = document.querySelector("#videoElement");
+        if (navigator.mediaDevices.getUserMedia) {
+          navigator.mediaDevices.getUserMedia({ video: true })
+            .then(function (stream) {
+              video.srcObject = stream;
+              draw();
+            })
+            .catch(function (err0r) {
+              console.log("Something went wrong!");
+            });}
+      </script>
+    <!-- End Right Column -->
+    </div>
+    
+  <!-- End Grid -->
+  </div>
+  
+  <!-- End Page Container -->
+</div>
+
+<footer style="background-color:black;">
+    <center>
+        <p style="color: white"> VIP: Machine Learning in Motion</p>
+        <p style="color: white">Powered by Purdue University</p>
+    </center>
+</footer>
+
 </body>
 </html>
