@@ -1,29 +1,48 @@
 let video;
 let poseNet;
 let pose;
-let pose1;
-let pose2;
+let detector;
+let detections = [];
+let nose_r = 0;
+let nose_g = 255;
+let nose_b = 0;
+
+function preload() {
+    detector = ml5.objectDetector('cocossd');
+}
+
+function gotDetections(error, results) {
+    if(error) {
+        console.error(error);
+    }
+    detections = results;
+    detector.detect(video, gotDetections);
+}
 
 function setup() {
-    createCanvas(640, 480);
+    canvas = createCanvas(640, 480);
+    canvas.position(520, 139)
     video = createCapture(VIDEO);
     video.hide();
     poseNet = ml5.poseNet(video, modelLoaded);
     poseNet.on('pose', gotPoses);
+    detector.detect(video, gotDetections);
 }
 
 function gotPoses(poses) {
     console.log(poses)
     if (poses.length > 0) {
         pose = poses[0].pose;
-        if(poses[1].pose){
-            pose1 = poses[1].pose;
-        }
     }
 }
 
 function modelLoaded() {
     console.log('poseNet ready');
+}
+
+function ChangeHeadColor() {
+    nose_g = 0;
+    nose_r = 255;
 }
 
 function draw() {
@@ -32,7 +51,7 @@ function draw() {
     if (pose) {
 
         let nose = pose.nose;
-        fill(0,255,0);
+        fill(nose_r,nose_g,nose_b);
         ellipse(nose.x, nose.y, 64);
 
 
@@ -42,33 +61,21 @@ function draw() {
             fill(0, 255, 0);
             ellipse(x, y, 16, 16)
         }
-    }
 
-    if (pose1) {
+        for(let i = 0; i < detections.length; i++) {
+            let object = detections[i];
+                if(object.label === 'person') {
+                    stroke(0, 255, 0);
+                    strokeWeight(4);
+                    noFill();
+                    rect(object.x, object.y, object.width, object.height);
 
-        let nose = pose1.nose;
-        fill(0,255,0);
-        ellipse(nose.x, nose.y, 64);
-
-        for(let i = 3; i < pose1.keypoints.length; i++) {
-            let x = pose1.keypoints[i].position.x;
-            let y = pose1.keypoints[i].position.y;
-            fill(0, 255, 0);
-            ellipse(x, y, 16, 16)
+                    noStroke();
+                    fill(255);
+                    textSize(24);
+                    text(object.label + i, object.x + 10, object.y + 24);
+                }
         }
     }
 
-    // if (pose2) {
-
-    //     let nose = pose2.nose;
-    //     fill(0,255,0);
-    //     ellipse(pose2.keypoints[0].position.x, pose2.keypoints[0].position.x, 16, 16);
-
-    //     // for(let i = 3; i < pose2.keypoints.length; i++) {
-    //     //     let x = pose2.keypoints[i].position.x;
-    //     //     let y = pose2.keypoints[i].position.y;
-    //     //     fill(0, 255, 0);
-    //     //     ellipse(x, y, 16, 16)
-    //     // }
-    // }
 }
