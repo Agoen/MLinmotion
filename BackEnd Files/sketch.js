@@ -75,6 +75,8 @@ function draw() {
                     textSize(24);
                     text(object.label + i, object.x + 10, object.y + 24);
                 }
+
+        //Testing
         }
     }
 
