@@ -20,8 +20,8 @@ function gotDetections(error, results) {
 }
 
 function setup() {
-    canvas = createCanvas(640, 480);
-    canvas.position(520, 139)
+    var canvas = createCanvas(640, 480);
+    canvas.parent('container');
     video = createCapture(VIDEO);
     video.hide();
     poseNet = ml5.poseNet(video, modelLoaded);
