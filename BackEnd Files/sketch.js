@@ -19,16 +19,26 @@ function gotDetections(error, results) {
     detector.detect(video, gotDetections);
 }
 
+// Sets up the canvas for displaying poses
 function setup() {
-    var canvas = createCanvas(640, 480);
+    // Sets the canvas so it has the same width and height of the container, and fits the screen correctly
+    let canvasDiv = document.getElementById('container');
+    let width = canvasDiv.offsetWidth;
+    let height = canvasDiv.offsetHeight;
+    var canvas = createCanvas(width, height);
+
+    // Sets the canvas to wherever the div with id "container" is located
     canvas.parent('container');
     video = createCapture(VIDEO);
     video.hide();
+    
+    // loads poseNet model for drawing
     poseNet = ml5.poseNet(video, modelLoaded);
     poseNet.on('pose', gotPoses);
     detector.detect(video, gotDetections);
 }
 
+// Checks if there are poses on screen, CAN BE UPDATED FOR MULTIPLE POSES IN THE FUTURE
 function gotPoses(poses) {
     console.log(poses)
     if (poses.length > 0) {
@@ -36,15 +46,18 @@ function gotPoses(poses) {
     }
 }
 
+// Sanity check to see if poseNet has loaded
 function modelLoaded() {
     console.log('poseNet ready');
 }
 
+// if checkbox selected, change selected keypoint color
 function ChangeHeadColor() {
     nose_g = 0;
     nose_r = 255;
 }
 
+// Where everything is drawn to show the user
 function draw() {
     image(video, 0, 0);
 
