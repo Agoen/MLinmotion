@@ -38,42 +38,26 @@
       <div class="w3-white w3-text-grey w3-card-4">
         <div class="w3-container">
             <div class="title">
-                <h2>Tracking Selector</h2>
+                <h1>Tracking Selector</h1>
               </div>
-              <select name="basic" id="ex-search" onchange="ChangeHeadColor();" multiple>
-                <option value="1">Head</option>
-                <option value="2">Karachi</option>
-                <option value="3">Beijing</option>
-                <option value="4">Tianjin</option>
-                <option value="5">Istanbul</option>
-                <option value="6">Lagos</option>
-                <option value="7">Tokyo</option>
-                <option value="8">Guangzhou</option>
-                <option value="9">Mumbai</option>
-                <option value="10">Moscow</option>
-                <option value="11">Dhaka</option>
-                <option value="12">Cairo</option>
-            </select>
-              <script>
-                $('#ex-search').picker({search : true});
-              </script>        
-              <!-- <label>
-                Multi-select
-                <input mbsc-input id="my-input" data-dropdown="true" data-tags="true" /> -->
-            <!-- </label> -->
-            <!-- <select class = "selectpicker" multiple>
-                <option value="cheese">Cheese</option>
-                <option value="tomatoes">Tomatoes</option>
-                <option value="mozarella">Mozzarella</option>
-                <option value="mushrooms">Mushrooms</option>
-                <option value="pepperoni">Pepperoni</option>
-                <option value="onions">Onions</option>
-            </select> -->
-            <!-- <script type="text/javascript">
-                $(document).ready(function() {
-                    $('#example-getting-started').multiselect();
-                });
-            </script> --> 
+
+              <form action="/action_page.php">
+              <input type="checkbox" id="body1" name="body1" value="Head">
+              <label for="vehicle1"> Head</label><br>
+              <input type="checkbox" id="body2" name="body2" value="Legs">
+              <label for="vehicle2"> Legs</label><br>
+              <input type="checkbox" id="body3" name="body3" value="Shoulder">
+              <label for="vehicle2"> Shoulder</label><br>
+              <input type="checkbox" id="body4" name="body4" value="Body">
+              <label for="vehicle2"> Body</label><br>
+              <input type="checkbox" id="body5" name="body5" value="Wrist">
+              <label for="vehicle2"> Wrist</label><br>
+              <input type="checkbox" id="body6" name="body6" value="Hips">
+              <label for="vehicle2"> Hips</label><br>
+              <input type="checkbox" id="body7" name="body7" value="Arms">
+              <label for="vehicle3"> Arms</label><br><br>
+              <input type="submit" value="Submit">
+              </form>
           <br>
         </div>
       </div><br>
