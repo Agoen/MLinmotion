@@ -1,11 +1,33 @@
+// GLOBAL VARIABLES FOR ENTIRE BACKEND TO USE
+//
+//
+//
+//const OSC = require('osc-js');
 let video;
 let poseNet;
 let pose;
+
+// variables for detecting people and labeling
 let detector;
 let detections = [];
-let nose_r = 0;
-let nose_g = 255;
-let nose_b = 0;
+
+// keypoints used, global variables
+let head, shoulder_l, shoulder_r, hip_l, hip_r;
+
+// head color variables
+let head_red = 0, head_blue = 0, head_green = 255;
+// shoulder color variables
+let shoulder_red = 0, shoulder_blue = 0, shoulder_green = 255;
+// wrist color variables
+let wrist_red = 0, wrist_blue = 0, wrist_green = 255;
+// body color variables
+let body_red = 0, body_blue = 0, body_green = 255;
+
+
+//
+//
+//
+// GLOBAL VARIABLES END
 
 function preload() {
     detector = ml5.objectDetector('cocossd');
@@ -51,10 +73,28 @@ function modelLoaded() {
     console.log('poseNet ready');
 }
 
-// if checkbox selected, change selected keypoint color
-function ChangeHeadColor() {
-    nose_g = 0;
-    nose_r = 255;
+function changeSpecifiedColor() {
+    var head_check = document.getElementById('body1').checked;
+    var shoulder_check = document.getElementById('body3').checked;
+    var body_check = document.getElementById('body4').checked;
+
+    if(head_check) {
+        head_blue = 255, head_green = 0, head_red = 255;
+    } else {
+        head_blue = 0, head_green = 255, head_red = 0;
+    }
+
+    if(shoulder_check) {
+        shoulder_blue = 255, shoulder_green = 0, shoulder_red = 255;
+    } else {
+        shoulder_blue = 0, shoulder_green = 255, shoulder_red = 0;
+    }
+
+    if(body_check) {
+        body_blue = 255, body_green = 0, body_red = 255;
+    } else {
+        body_blue = 0, body_green = 255, body_red = 0;
+    }
 }
 
 // Where everything is drawn to show the user
@@ -63,10 +103,23 @@ function draw() {
 
     if (pose) {
 
-        let nose = pose.nose;
-        fill(nose_r,nose_g,nose_b);
-        ellipse(nose.x, nose.y, 64);
+        head = pose.nose;
+        fill(head_red,head_green,head_blue);
+        ellipse(head.x, head.y, 50);
 
+        shoulder_l = pose.leftShoulder;
+        fill(shoulder_red, shoulder_green, shoulder_blue);
+        ellipse(shoulder_l.x, shoulder_l.y, 50);
+        shoulder_r = pose.rightShoulder;
+        fill(shoulder_red, shoulder_green, shoulder_blue);
+        ellipse(shoulder_r.x, shoulder_r.y, 50);
+
+        hip_l = pose.leftHip;
+        hip_r = pose.rightHip;
+        fill(body_red, body_green, body_blue);
+        quad(shoulder_l.x, shoulder_l.y, shoulder_r.x, shoulder_r.y, hip_r.x, hip_r.y, hip_l.x, hip_l.y);
+
+        // Variables used for distance estimation
         let focal_length = 3.6 * (10 ** -3);
         let the_height = 0.0385;
         let right_ankle = pose.rightAnkle;
@@ -87,14 +140,15 @@ function draw() {
 
         
 
+        // Ignoring keypoints that are unused, create ellipses representing all the other keypoints that posenet offers
+        // for(let i = 5; i < pose.keypoints.length; i++) {
+        //     let x = pose.keypoints[i].position.x;
+        //     let y = pose.keypoints[i].position.y;
+        //     fill(0, 255, 0);
+        //     ellipse(x, y, 16, 16)
+        // }
 
-        for(let i = 3; i < pose.keypoints.length; i++) {
-            let x = pose.keypoints[i].position.x;
-            let y = pose.keypoints[i].position.y;
-            fill(0, 255, 0);
-            ellipse(x, y, 16, 16)
-        }
-
+        // Drawing a box around the person detected
         for(let i = 0; i < detections.length; i++) {
             let object = detections[i];
                 if(object.label === 'person') {
@@ -109,6 +163,7 @@ function draw() {
                     text(object.label + i, object.x + 10, object.y + 24);
                 }
 
+        // Displaying distance estimation dependent on the confidence score
         if (leftShoulderScore >= 0.8)
         {
             noStroke();
@@ -124,11 +179,8 @@ function draw() {
             fill (0,255,0);
             textSize (26);
             text("The estimated distance (m): ",marking.x + 10,470)
-            text(round(actual_distance_2,1),marking.x + 340,470);
-
-            
+            text(round(actual_distance_2,1),marking.x + 340,470);   
         }
-        //Testing
         }
     }
 
