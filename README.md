@@ -53,7 +53,7 @@ The VIP (Vertically Integrated Projects) project Machine Learning in Motion cons
 
 * **Output:** The function will label the joint and draw lines that connect each joints of an object and will estimate the distance between camera and the object. Also, draws the box around only on object labeled as person.  
 
-### Function tracker(): (still in progress of implementation) 
+### Function tracker(): *(still in progress of implementation)* 
 
 * **Description:** I need to update the object coordinates in every frame to keep track of the same object label for each object. The previous frame is a reference frame, which is compared to the current frame to find the Euclidean distance. 
 
