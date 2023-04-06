@@ -8,4 +8,4 @@ The VIP (Vertically Integrated Projects) project Machine Learning in Motion cons
 * HTML 
 * CSS 
 
-*** Tested on Window and Mac ***
+***Tested on Window and Mac***
