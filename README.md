@@ -12,10 +12,10 @@ The VIP (Vertically Integrated Projects) project Machine Learning in Motion cons
 
 ## The Front-End
 ### Webapge (html and js file): 
-* Description: The html and javascript files work together to create an interactive webpage where the user can choose what distinct joints will be selected on each pose all while displaying a video that is be taken by the camera. 
+* **Description:** The html and javascript files work together to create an interactive webpage where the user can choose what distinct joints will be selected on each pose all while displaying a video that is be taken by the camera. 
 
-* Input: These files take in the camera visual and then display it. 
+* **Input:** These files take in the camera visual and then display it. 
 
-* Output: These files will output the user input of the chosen joints to the backend files, so that they can filter the data to only the chosen joints. Thus, allowing the light fixture to only display on the chosen body parts. 
+* **Output:** These files will output the user input of the chosen joints to the backend files, so that they can filter the data to only the chosen joints. Thus, allowing the light fixture to only display on the chosen body parts. 
 
-* Environments: Works in Windows and Linux  
+* **Environments:** Works in Windows and Linux  
