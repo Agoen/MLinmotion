@@ -19,3 +19,12 @@ The VIP (Vertically Integrated Projects) project Machine Learning in Motion cons
 * **Output:** These files will output the user input of the chosen joints to the backend files, so that they can filter the data to only the chosen joints. Thus, allowing the light fixture to only display on the chosen body parts. 
 
 * **Environments:** Works in Windows and Linux  
+
+## The Back-End
+### Function setup (): 
+
+* **Description:** The function sets up the canvas to access the webcam, then access the Pose net function from the library ml5 to operate the Pose net model 
+
+* **Input:** This function takes no input 
+
+* **Output:** This function will operate the Pose net model, which will detect of object that consists of the pose, skeleton, key points of joints, confidence key point and the coordinate in x and y of each key point 
