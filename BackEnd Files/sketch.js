@@ -2,7 +2,6 @@
 //
 //
 //
-//const OSC = require('osc-js');
 let video;
 let poseNet;
 let pose;
@@ -12,7 +11,7 @@ let detector;
 let detections = [];
 
 // keypoints used, global variables
-let head, shoulder_l, shoulder_r, hip_l, hip_r;
+let head, shoulder_l, shoulder_r, hip_l, hip_r, wrist_l, wrist_r;
 
 // head color variables
 let head_red = 0, head_blue = 0, head_green = 255;
@@ -22,6 +21,8 @@ let shoulder_red = 0, shoulder_blue = 0, shoulder_green = 255;
 let wrist_red = 0, wrist_blue = 0, wrist_green = 255;
 // body color variables
 let body_red = 0, body_blue = 0, body_green = 255;
+// hip color variables
+let hip_red = 0, hip_blue = 0, hip_green = 255
 
 
 //
@@ -77,6 +78,20 @@ function changeSpecifiedColor() {
     var head_check = document.getElementById('body1').checked;
     var shoulder_check = document.getElementById('body3').checked;
     var body_check = document.getElementById('body4').checked;
+    var wrist_check = document.getElementById('body5').checked;
+    var hip_check = document.getElementById('body6').checked;
+
+    if(hip_check) {
+        hip_blue = 255, hip_green = 0,hip_red = 255;
+    } else {
+        hip_blue = 0, hip_green = 255, hip_red = 0;
+    }
+
+    if(wrist_check) {
+        wrist_blue = 255, wrist_green = 0, wrist_red = 255;
+    } else {
+        wrist_blue = 0, wrist_green = 255, wrist_red = 0;
+    }
 
     if(head_check) {
         head_blue = 255, head_green = 0, head_red = 255;
@@ -103,10 +118,12 @@ function draw() {
 
     if (pose) {
 
+        // Section for creating a pose keypoint for the head
         head = pose.nose;
         fill(head_red,head_green,head_blue);
         ellipse(head.x, head.y, 50);
 
+        // Section for creating a pose keypoint for the shoulders
         shoulder_l = pose.leftShoulder;
         fill(shoulder_red, shoulder_green, shoulder_blue);
         ellipse(shoulder_l.x, shoulder_l.y, 50);
@@ -114,10 +131,24 @@ function draw() {
         fill(shoulder_red, shoulder_green, shoulder_blue);
         ellipse(shoulder_r.x, shoulder_r.y, 50);
 
+        // Section of code of creating a pose keypoint for the right and left hip, and using that to set the body point for access through the frontend
         hip_l = pose.leftHip;
         hip_r = pose.rightHip;
+        fill(hip_red, hip_green, hip_blue);
+        ellipse(hip_r.x, hip_r.y, 50);
+        fill(hip_red, hip_green, hip_blue);
+        ellipse(hip_l.x, hip_l.y, 50);
         fill(body_red, body_green, body_blue);
         quad(shoulder_l.x, shoulder_l.y, shoulder_r.x, shoulder_r.y, hip_r.x, hip_r.y, hip_l.x, hip_l.y);
+
+        // Section of code for creating a pose keypoint for the wrists
+        wrist_l = pose.leftWrist;
+        fill(wrist_red, wrist_green, wrist_blue);
+        ellipse(wrist_l.x, wrist_l.y, 50);
+        wrist_r = pose.rightWrist;
+        fill(wrist_red, wrist_green, wrist_blue);
+        ellipse(wrist_r.x, wrist_r.y, 50);
+
 
         // Variables used for distance estimation
         let focal_length = 3.6 * (10 ** -3);
