@@ -12,7 +12,18 @@ The VIP (Vertically Integrated Projects) project Machine Learning in Motion cons
 ***Tested on Window and Mac***
 
 ## How to Setup
+1. Download Visual Studio Code (VS code) for Windows and Mac OS through the link [VS Code](https://code.visualstudio.com/Download)
+    1. For the Windows system:
+        1. Click on the link above and select the VS code for the Window system as the symbol on the left in the picture below: 
+    2. Further guidelines for downloading VS code can be found in this [YouTube Tutorial](https://www.youtube.com/watch?v=bN6DE-4uFNo)
+2. Download Git. This is an open source version control system that will allow you to run the code on your own machine.
+    1. The instructions to setup Git on your VS Code will be though this [link](https://www.geeksforgeeks.org/how-to-install-git-in-vs-code/)
+3. Download extensions for live server.
+    1. To do this first go to the extensions tab on the left-hand side of VSCode and then search “Live Server.” Install the application that has a purple logo and is by the publisher Ritwick Dey. 
+    2. <img width="371" alt="Screenshot 2023-04-19 111101" src="https://user-images.githubusercontent.com/89948740/233120228-eb4df665-841e-4319-bd78-43f0dec01faf.png">
+    3. After the download has been completed there should be a “Go Live” button on the bottom right side of the VSCode as shown below. 
 
+    
 ## The Front-End
 ### Webapge (html and js file): 
 * **Description:** The html and javascript files work together to create an interactive webpage where the user can choose what distinct joints will be selected on each pose all while displaying a video that is be taken by the camera. 
