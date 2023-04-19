@@ -179,7 +179,12 @@ function draw() {
         //     ellipse(x, y, 16, 16)
         // }
 
-        // Drawing a box around the person detected
+        /* 
+        Drawing boxes around each object that is detected and labeled as ‘person.’ 
+        Each person in the frame is labeled as ‘person1’, ‘person2’, etc. 
+        But they are not stable yet, meaning that we need to give them a unique ID while they are 
+        in the frame so that the label does not change while their position in the screen changes 
+        */ 
         for(let i = 0; i < detections.length; i++) {
             let object = detections[i];
                 if(object.label === 'person') {
