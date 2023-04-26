@@ -12,9 +12,10 @@ The VIP (Vertically Integrated Projects) project Machine Learning in Motion cons
 ***Tested on Window and Mac***
 
 ## How to Setup
+
 Downloading Visual Studio Code (VS code) for Window system and Mac Os system through the link: https://code.visualstudio.com/Download 
 
-For the Window system: 
+***For the Window system: 
 
     1. Click on the link above and select the VS code for the Window system as the symbol on the left in the picture below: 
         
@@ -23,6 +24,12 @@ For the Window system:
     3. Then click on “Next” to past “Select Desination Location” and “Started New Folder” until you are in the “Select Additional Tasks” then click the box following boxes that is under the “Additional icons” Section as the picture below: 
     
     4. Click on “Next” then downloading the VS code is finished.
+    
+***For Mac OS systems:
+
+    1. Downloading the VS code then open the VS code file then you will be under this picture below then click “Open” and you are set in downloading VS code for Mac OS system: 
+    
+    2. Further guidelines of downloading VS code will be through this YouTube tutorial link: https://www.youtube.com/watch?v=bN6DE-4uFNo.
     
 ## The Front-End
 ### Webapge (html and js file): 
