@@ -125,11 +125,11 @@ For Mac OS systems:
 
 * **1)** * In the VS code, after open the file, click “Go Live” on the right bottom of the VS code such that, It pops up a local website as the picture below 
 
-<img width="960" alt="NEW_TERMINAL - MLM" src="https://user-images.githubusercontent.com/112987361/234621073-f330838e-0693-4f81-bb4d-99bf3c85ad6c.png">
+<img width="960" alt="NEW_TERMINAL - MLM" src="https://user-images.githubusercontent.com/112987361/234626667-3191f32b-50cf-45f0-b3ed-b7a48f64f5d7.png">
 
 * **2)** * Then click on the “FrontEnd Files” section and click on “MLM_Frontend.html, then the website will appear as the picture below:
 
-<img width="960" alt="NEW_TERMINAL - MLM" src="https://user-images.githubusercontent.com/112987361/234621614-e40906a1-bd6a-498d-8aa9-ea2c959fe2eb.png">
+<img width="960" alt="NEW_TERMINAL - MLM" src="https://user-images.githubusercontent.com/112987361/234627317-64d4c856-6a6e-434b-857c-bf7e753ca326.png">
 
 ### Description of the website:
 
