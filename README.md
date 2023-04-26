@@ -1,6 +1,7 @@
 # VIP - Machine Learning in Motion
 ## Project Description
 The VIP (Vertically Integrated Projects) project Machine Learning in Motion consists of the development of motion analyzing software to help dance choreographers   gather data on their rehearsals and performances, such as distance, speed, and position of the dancers. The project's goal is to provide open-source software for individuals to learn how technology may be utilized to assist artists from a variety of disciplines in using the physical world to impact the electrical and hardware realms. This data can be used in the dance making process and/or performances through the interaction of design elements such as lighting, sound, and projection. The backend implementation tested for the motion tracking of multiple figures uses Pose Net and Move Net and TensorFlow. In the Front-End, the web app flow and UI has been conceptualized and is under development. The final web app flow and UI is going to be intuitional and user-friendly so that individuals who are not familiar with technology can easily navigate throughout the application. 
+
 ## Required Libraries/ Languages
 * Import p5
 * Import ML5 version (0.12.2)
@@ -10,6 +11,61 @@ The VIP (Vertically Integrated Projects) project Machine Learning in Motion cons
 
 ***Tested on Window and Mac***
 
+## How to Setup
+
+#### 1) Downloading Visual Studio Code (VS code) for Window system and Mac Os system through the link: https://code.visualstudio.com/Download 
+
+For the Window system:
+
+1. Click on the link above and select the VS code for the Window system as the symbol on the left in the picture below: 
+
+<img width="371" alt="Screenshot 2023-04-19 111101" src="https://user-images.githubusercontent.com/90229817/234602379-2aeb0184-1afc-436a-8487-f73c7e5d6e7c.png">
+        
+2. After the Vs code file is downloaded, open the VS code file, the screen would be appeared as the picture below, the click on “I agree the agreement” and click on “Next.” 
+
+<img width="371" alt="Screenshot 2023-04-19 111101" src="https://user-images.githubusercontent.com/90229817/234603678-6bc1eca8-ad2e-4039-9873-7f4677170520.png">
+    
+3. Then click on “Next” to past “Select Desination Location” and “Started New Folder” until you are in the “Select Additional Tasks” then click the box following boxes that is under the “Additional icons” Section as the picture below: 
+
+<img width="371" alt="Screenshot 2023-04-19 111101" src="https://user-images.githubusercontent.com/90229817/234604083-45d16f06-04d1-41db-a6d3-a292ca90742f.png">
+
+4. Click on “Next” then downloading the VS code is finished.
+    
+For Mac OS systems:
+
+1. Downloading the VS code then open the VS code file then you will be under this picture below then click “Open” and you are set in downloading VS code for Mac OS system: 
+
+<img width="300" alt="Screenshot 2023-04-19 111101" src="https://user-images.githubusercontent.com/90229817/234604412-a958443d-cb5b-495b-8974-656192f99d7f.png">
+
+2. Further guidelines of downloading VS code will be through this YouTube tutorial link: https://www.youtube.com/watch?v=bN6DE-4uFNo.
+    
+#### 2) Download Git, which is an open-source version control system which will allow you to run the code on your own machine.
+
+ The instructions to setup Git on your VSCode will be though this link. https://www.geeksforgeeks.org/how-to-install-git-in-vs-code/ 
+
+#### 3) Download extensions for live server.
+
+1. First go to the extensions tab on the left-hand side of VSCode and then search “Live Server.” Install the application that has a purple logo and is by the publisher Ritwick Dey. This is shown below.
+
+<img width="371" alt="Screenshot 2023-04-19 111101" src="https://user-images.githubusercontent.com/89948740/233120228-eb4df665-841e-4319-bd78-43f0dec01faf.png">
+    
+2. After the download has completed there should be a “Go Live” button on the bottom right side of the VSCode as shown below. 
+
+<img width="500" alt="Screenshot 2023-04-19 111101" src="https://user-images.githubusercontent.com/90229817/234605088-8d0f7c9a-3180-45cb-b9e1-a28a0c0d817b.png">
+
+#### 4) Cloning your respository.
+    
+1. Now you need to use git to “clone over the repository” into your machine. This will finally allow you see transfer all the code onto your computer. To do this you need to create a terminal in VSCode and type in “git clone” and then url of the repository. To get the url of the repository you can click on the green code button, then under local and HTTPS there should be a url that you can copy. 
+
+<img width="450" alt="Screenshot 2023-04-19 111101" src="https://user-images.githubusercontent.com/90229817/234605711-e3cd8e75-08fd-402b-a1b4-a69fdd5a1b1a.png">
+
+2. It should look something like this in the terminal. 
+
+<img width="1200" alt="Screenshot 2023-04-19 111101" src="https://user-images.githubusercontent.com/90229817/234606027-304d434f-bf69-4870-ab7a-0ae4c5975c1a.png">
+
+3. Now you should be able to finally run the current version of the program by opening the “MLM_Frontend.html” file and clicking the “Go Live” button on the bottom left.
+ 
+   
 ## The Front-End
 ### Webapge (html and js file): 
 * **Description:** The html and javascript files work together to create an interactive webpage where the user can choose what distinct joints will be selected on each pose all while displaying a video that is be taken by the camera. 
