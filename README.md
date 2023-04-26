@@ -120,3 +120,23 @@ For Mac OS systems:
 * **Input:** object’s [x, y, w, h, unique_id] 
 
 * **Output:** Stable object labeling on each person throughout the video 
+
+### After set up and Guideline User:
+
+* **1)** * In the VS code, after open the file, click “Go Live” on the right bottom of the VS code such that, It pops up a local website as the picture below 
+
+<img width="960" alt="NEW_TERMINAL - MLM" src="https://user-images.githubusercontent.com/112987361/234621073-f330838e-0693-4f81-bb4d-99bf3c85ad6c.png">
+
+* **2)** * Then click on the “FrontEnd Files” section and click on “MLM_Frontend.html, then the website will appear as the picture below:
+
+<img width="960" alt="NEW_TERMINAL - MLM" src="https://user-images.githubusercontent.com/112987361/234621614-e40906a1-bd6a-498d-8aa9-ea2c959fe2eb.png">
+
+### Description of the website:
+
+* **Tracking Selector section:** * The section has (Head, Legs, Shoulder, Body, Wrist, Hips, Arms) that you can choose for the model focus on to detect that particular of the object by changing the color from green to pink.
+
+* **Canvas section:** *  The model detects people as objects but focuses on one individual and labels them as “person 0”, then the model labels and creates pose on a person and detects the distance between the camera and the object. 
+
+
+
+
