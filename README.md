@@ -18,11 +18,17 @@ The VIP (Vertically Integrated Projects) project Machine Learning in Motion cons
 For the Window system:
 
 1. Click on the link above and select the VS code for the Window system as the symbol on the left in the picture below: 
+
+<img width="371" alt="Screenshot 2023-04-19 111101" src="https://user-images.githubusercontent.com/90229817/234602379-2aeb0184-1afc-436a-8487-f73c7e5d6e7c.png">
         
 2. After the Vs code file is downloaded, open the VS code file, the screen would be appeared as the picture below, the click on “I agree the agreement” and click on “Next.” 
+
+<img width="371" alt="Screenshot 2023-04-19 111101" src="https://user-images.githubusercontent.com/90229817/234603678-6bc1eca8-ad2e-4039-9873-7f4677170520.png">
     
 3. Then click on “Next” to past “Select Desination Location” and “Started New Folder” until you are in the “Select Additional Tasks” then click the box following boxes that is under the “Additional icons” Section as the picture below: 
-    
+
+<img width="371" alt="Screenshot 2023-04-19 111101" src="https://user-images.githubusercontent.com/90229817/234604083-45d16f06-04d1-41db-a6d3-a292ca90742f.png">
+
 4. Click on “Next” then downloading the VS code is finished.
     
 For Mac OS systems:
