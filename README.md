@@ -34,7 +34,9 @@ For the Window system:
 For Mac OS systems:
 
 1. Downloading the VS code then open the VS code file then you will be under this picture below then click “Open” and you are set in downloading VS code for Mac OS system: 
-    
+
+<img width="300" alt="Screenshot 2023-04-19 111101" src="https://user-images.githubusercontent.com/90229817/234604412-a958443d-cb5b-495b-8974-656192f99d7f.png">
+
 2. Further guidelines of downloading VS code will be through this YouTube tutorial link: https://www.youtube.com/watch?v=bN6DE-4uFNo.
     
 #### 2) Download Git, which is an open-source version control system which will allow you to run the code on your own machine.
@@ -43,16 +45,24 @@ For Mac OS systems:
 
 #### 3) Download extensions for live server.
 
-1. First go to the extensions tab on the left-hand side of VSCode and then search “Live Server.” Install the application that has a purple logo and is by the publisher Ritwick Dey.
+1. First go to the extensions tab on the left-hand side of VSCode and then search “Live Server.” Install the application that has a purple logo and is by the publisher Ritwick Dey. This is shown below.
+
+<img width="371" alt="Screenshot 2023-04-19 111101" src="https://user-images.githubusercontent.com/89948740/233120228-eb4df665-841e-4319-bd78-43f0dec01faf.png">
     
 2. After the download has completed there should be a “Go Live” button on the bottom right side of the VSCode as shown below. 
+
+<img width="500" alt="Screenshot 2023-04-19 111101" src="https://user-images.githubusercontent.com/90229817/234605088-8d0f7c9a-3180-45cb-b9e1-a28a0c0d817b.png">
 
 #### 4) Cloning your respository.
     
 1. Now you need to use git to “clone over the repository” into your machine. This will finally allow you see transfer all the code onto your computer. To do this you need to create a terminal in VSCode and type in “git clone” and then url of the repository. To get the url of the repository you can click on the green code button, then under local and HTTPS there should be a url that you can copy. 
-    
+
+<img width="450" alt="Screenshot 2023-04-19 111101" src="https://user-images.githubusercontent.com/90229817/234605711-e3cd8e75-08fd-402b-a1b4-a69fdd5a1b1a.png">
+
 2. It should look something like this in the terminal. 
-    
+
+<img width="1200" alt="Screenshot 2023-04-19 111101" src="https://user-images.githubusercontent.com/90229817/234606027-304d434f-bf69-4870-ab7a-0ae4c5975c1a.png">
+
 3. Now you should be able to finally run the current version of the program by opening the “MLM_Frontend.html” file and clicking the “Go Live” button on the bottom left.
  
    
