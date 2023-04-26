@@ -27,7 +27,7 @@ For the Window system:
     
 3. Then click on “Next” to past “Select Desination Location” and “Started New Folder” until you are in the “Select Additional Tasks” then click the box following boxes that is under the “Additional icons” Section as the picture below: 
 
-<img width="371" alt="Screenshot 2023-04-19 111101" src="https://user-images.githubusercontent.com/90229817/234604083-45d16f06-04d1-41db-a6d3-a292ca90742f.png">
+<img width="350" alt="Screenshot 2023-04-19 111101" src="https://user-images.githubusercontent.com/90229817/234604083-45d16f06-04d1-41db-a6d3-a292ca90742f.png">
 
 4. Click on “Next” then downloading the VS code is finished.
     
@@ -57,9 +57,13 @@ For Mac OS systems:
     
 1. Now you need to use git to “clone over the repository” into your machine. This will finally allow you see transfer all the code onto your computer. To do this you need to create a terminal in VSCode and type in “git clone” and then url of the repository. To get the url of the repository you can click on the green code button, then under local and HTTPS there should be a url that you can copy. 
 
-<img width="450" alt="Screenshot 2023-04-19 111101" src="https://user-images.githubusercontent.com/90229817/234605711-e3cd8e75-08fd-402b-a1b4-a69fdd5a1b1a.png">
+2. Now create a new terminal.
 
-2. It should look something like this in the terminal. 
+<img width="500" alt="Screenshot 2023-04-19 111101" src="https://user-images.githubusercontent.com/97467385/234616243-1709420f-c250-478b-a4ea-7f82ea9ba936.jpg">
+
+<img width="960" alt="NEW_TERMINAL - MLM" src="https://user-images.githubusercontent.com/97467385/234617423-67358f7a-d867-4305-8d4b-a3eb5418bc8a.png">
+
+3. It should look something like this in the terminal. 
 
 <img width="1200" alt="Screenshot 2023-04-19 111101" src="https://user-images.githubusercontent.com/90229817/234606027-304d434f-bf69-4870-ab7a-0ae4c5975c1a.png">
 
